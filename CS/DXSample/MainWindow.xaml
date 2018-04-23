@@ -1,0 +1,55 @@
+﻿<Window  
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid" 
+    xmlns:local="clr-namespace:DXSample"
+    x:Class="DXSample.MainWindow" 
+    Title="MainWindow" 
+    Height="350" 
+    Width="525">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="template1">
+                <TextBlock Text="{Binding Text}" Foreground="Red" />
+            </DataTemplate>
+
+            <DataTemplate x:Key="template2">
+                <TextBlock Text="{Binding Text}" Foreground="Blue" />
+            </DataTemplate>
+
+            <DataTemplate x:Key="template3">
+                <TextBlock Text="{Binding Text}" Foreground="Green" />
+            </DataTemplate>
+
+            <local:GroupSummaryDataTemplateSelector 
+                x:Key="TemplateSelector" 
+                Template1="{StaticResource template1}" 
+                Template2="{StaticResource template2}" 
+                Template3="{StaticResource template3}"/>
+        </Grid.Resources>
+        <dxg:GridControl x:Name="grid" ItemsSource="{Binding Collection}" >
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="ID"/>
+                <dxg:GridColumn FieldName="Name" GroupIndex="0"/>
+                <dxg:GridColumn FieldName="Description"/>
+                <dxg:GridColumn FieldName="Price"/>
+                <dxg:GridColumn FieldName="Count"/>
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.GroupSummary>
+                <dxg:GridSummaryItem FieldName="Price" SummaryType="Sum"/>
+                <dxg:GridSummaryItem FieldName="Price" SummaryType="Max" DisplayFormat="Max Price: {0}"/>
+                <dxg:GridSummaryItem FieldName="Count" SummaryType="Sum"/>
+            </dxg:GridControl.GroupSummary>
+            <dxg:GridControl.View>
+                <dxg:TableView x:Name="view" AutoWidth="True" GroupSummaryDisplayMode="AlignByColumns">
+                    <dxg:TableView.GroupColumnSummaryItemTemplate>
+                        <DataTemplate>
+                            <local:ItemsControlEx AllItems="{Binding GroupRowData.GroupSummaryData}" Column="{Binding Column}" ItemTemplateSelector="{StaticResource ResourceKey=TemplateSelector}"/>
+                        </DataTemplate>
+                    </dxg:TableView.GroupColumnSummaryItemTemplate>
+                </dxg:TableView>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</Window>
