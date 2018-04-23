@@ -1,0 +1,85 @@
+﻿<Window  
+    x:Class="DXSample.MainWindow" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+    xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"     
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:local="clr-namespace:DXSample"
+    Title="MainWindow" 
+    Height="350" 
+    Width="525">
+    <Window.DataContext>
+        <local:ViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <dxg:GridControl x:Name="grid" ItemsSource="{Binding Collection}" AutoExpandAllGroups="True" >
+            <dxg:GridControl.Resources>
+                <Style x:Key="SummaryStyle" TargetType="Run">
+                    <Setter Property="FontWeight" Value="Bold"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=Item.SummaryType}" Value="Min">
+                            <Setter Property="Foreground" Value="Green"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Item.SummaryType}" Value="Max">
+                            <Setter Property="Foreground" Value="Red"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Path=Item.SummaryType}" Value="Sum">
+                            <Setter Property="Foreground" Value="Blue"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </dxg:GridControl.Resources>
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn Name="colCity" FieldName="City" MinWidth="120" GroupIndex="0" />
+                <dxg:GridColumn FieldName="UnitPrice" MinWidth="30">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings Mask="c" MaskType="Numeric" MaskUseAsDisplayFormat="True"/>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="Quantity" MinWidth="30" />
+                <dxg:GridColumn FieldName="Discount" MinWidth="30">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings Mask="0%" MaskType="Numeric" MaskUseAsDisplayFormat="True"/>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="Freight" MinWidth="30">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings Mask="c" MaskType="Numeric" MaskUseAsDisplayFormat="True"/>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="Total" UnboundType="Decimal" MinWidth="30" UnboundExpression="([UnitPrice] * [Quantity]) * (1 - [Discount])">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings Mask="c" MaskType="Numeric" MaskUseAsDisplayFormat="True" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+            </dxg:GridControl.Columns>
+            <dxg:GridControl.GroupSummary>
+                <dxg:GridSummaryItem FieldName="Discount" SummaryType="Max" />
+                <dxg:GridSummaryItem FieldName="Discount" SummaryType="Average" ShowInGroupColumnFooter="Discount" />
+                <dxg:GridSummaryItem FieldName="Total" SummaryType="Count" ShowInGroupColumnFooter="Total" />
+                <dxg:GridSummaryItem FieldName="Total" SummaryType="Sum" ShowInGroupColumnFooter="Total" />
+                <dxg:GridSummaryItem FieldName="Quantity" SummaryType="Min"/>
+                <dxg:GridSummaryItem FieldName="Quantity" SummaryType="Max"/>
+                <dxg:GridSummaryItem FieldName="Freight" SummaryType="Sum"/>
+                <dxg:GridSummaryItem FieldName="UnitPrice" SummaryType="Average"/>
+            </dxg:GridControl.GroupSummary>
+            <dxg:GridControl.TotalSummary>
+                <dxg:GridSummaryItem FieldName="Total" SummaryType="Count" ShowInGroupColumnFooter="Total" />
+                <dxg:GridSummaryItem FieldName="Total" SummaryType="Sum" ShowInGroupColumnFooter="Total" />
+            </dxg:GridControl.TotalSummary>
+            <dxg:GridControl.View>
+                <dxg:TableView x:Name="view"
+                               AutoWidth="True"
+                               ShowGroupedColumns="True"
+                               ShowGroupFooters="True"
+                               ShowTotalSummary="True"
+                               GroupSummaryDisplayMode="AlignByColumns"
+                               GroupColumnFooterElementStyle="{StaticResource SummaryStyle}"
+                               GroupColumnSummaryElementStyle="{StaticResource SummaryStyle}"
+                               TotalSummaryElementStyle="{StaticResource SummaryStyle}">
+                </dxg:TableView>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
+    </Grid>
+</Window>
