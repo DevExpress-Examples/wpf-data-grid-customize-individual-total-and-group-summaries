@@ -1,3 +1,10 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [SimpleData.cs](./CS/DXSample/Data/SimpleData.cs) (VB: [SimpleData.vb](./VB/DXSample/Data/SimpleData.vb))
+* [ViewModel.cs](./CS/DXSample/Data/ViewModel.cs) (VB: [ViewModel.vb](./VB/DXSample/Data/ViewModel.vb))
+* [MainWindow.xaml](./CS/DXSample/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/DXSample/MainWindow.xaml))
+<!-- default file list end -->
 # How to style GridControl's summary items separately when summary items are aligned by columns
 
 
