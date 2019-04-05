@@ -5,7 +5,7 @@
 * [ViewModel.cs](./CS/DXSample/Data/ViewModel.cs) (VB: [ViewModel.vb](./VB/DXSample/Data/ViewModel.vb))
 * [GroupSummaryDataTemplateSelector.cs](./CS/DXSample/GroupSummaryDataTemplateSelector.cs) (VB: [GroupSummaryDataTemplateSelector.vb](./VB/DXSample/GroupSummaryDataTemplateSelector.vb))
 * [ItemsControlEx.cs](./CS/DXSample/ItemsControlEx.cs) (VB: [ItemsControlEx.vb](./VB/DXSample/ItemsControlEx.vb))
-* [MainWindow.xaml](./CS/DXSample/MainWindow.xaml) (VB: [MainWindow.xaml.vb](./VB/DXSample/MainWindow.xaml.vb))
+* [MainWindow.xaml](./CS/DXSample/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/DXSample/MainWindow.xaml))
 * [MainWindow.xaml.cs](./CS/DXSample/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/DXSample/MainWindow.xaml.vb))
 <!-- default file list end -->
 # How to style GridControl's summary items separately when summary items are aligned by columns
