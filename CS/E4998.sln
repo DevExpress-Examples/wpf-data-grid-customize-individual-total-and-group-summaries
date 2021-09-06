@@ -1,5 +1,5 @@
 Microsoft Visual Studio Solution File, Format Version 14.00
-# Visual Studio 2015
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DXSample", "DXSample\DXSample.csproj", "{8824A90E-49A3-4505-B489-5441A4CB989A}"
 EndProject
 Global
