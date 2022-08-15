@@ -73,7 +73,7 @@
                                AutoWidth="True"
                                ShowGroupedColumns="True"
                                ShowGroupFooters="True"
-                               ShowTotalSummary="True"
+                               TotalSummaryPosition="Bottom"
                                GroupSummaryDisplayMode="AlignByColumns"
                                GroupColumnFooterElementStyle="{StaticResource SummaryStyle}"
                                GroupColumnSummaryElementStyle="{StaticResource SummaryStyle}"
