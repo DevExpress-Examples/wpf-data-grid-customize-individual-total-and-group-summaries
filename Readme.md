@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# WPF Data Grid - Customize Total and Group Summaries
+# WPF Data Grid - Customize Individual Total and Group Summaries
 
 This example customizes [total and group summaries](https://docs.devexpress.com/WPF/7354/controls-and-libraries/data-grid/data-summaries) based on the summary type.
 
