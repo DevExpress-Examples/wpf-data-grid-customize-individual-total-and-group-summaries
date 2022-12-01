@@ -18,7 +18,7 @@ This example customizes [total and group summaries](https://docs.devexpress.com/
 
 ## Documentation
 
-* [Data Summaries](https://docs.devexpress.com/WPF/7354/controls-and-libraries/data-grid/data-summaries)
+* [Summary Customization](https://docs.devexpress.com/WPF/400200/controls-and-libraries/data-grid/data-summaries/summary-customization)
 * [FixedTotalSummaryElementStyle](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.DataViewBase.FixedTotalSummaryElementStyle)
 * [TotalSummaryElementStyle](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.DataViewBase.TotalSummaryElementStyle)
 * [GroupColumnFooterElementStyle](https://docs.devexpress.com/WPF/DevExpress.Xpf.Grid.TableView.GroupColumnFooterElementStyle)
